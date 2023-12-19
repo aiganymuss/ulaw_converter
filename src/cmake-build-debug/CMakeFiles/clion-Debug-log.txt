@@ -1,0 +1,13 @@
+/home/aiganym/clion-2023.3.1/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/aiganym/clion-2023.3.1/bin/ninja/linux/x64/ninja -G Ninja -S /home/aiganym/GolandProjects/ulaw_to_wav/src -B /home/aiganym/GolandProjects/ulaw_to_wav/src/cmake-build-debug
+-- Configuring done (0.0s)
+CMake Error at CMakeLists.txt:6 (add_executable):
+  Cannot find source file:
+
+    decode.h
+
+
+CMake Error at CMakeLists.txt:6 (add_executable):
+  No SOURCES given to target: lib
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
