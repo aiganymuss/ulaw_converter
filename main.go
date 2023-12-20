@@ -1,32 +1,10 @@
 package main
 
-/*
-	#cgo CFLAGS: -I./src
-	#cgo LDFLAGS: -L./lib -ldecode -Wl,-rpath=./lib -lsox
-	#include <stdlib.h>
-	#include <sox.h>
-   	#include "libdecode.h"
-*/
-import "C"
 import (
 	"fmt"
+	"github.com/aiganymuss/ulaw_converter/converter"
 	"io/ioutil"
-	"unsafe"
 )
-
-func ulaw_to_wav(fileBuffer []byte, outputFileName string) int {
-	cOutputFileName := C.CString(outputFileName)
-	defer C.free(unsafe.Pointer(cOutputFileName))
-
-	// Convert Go byte slice to C char*
-	cBuffer := C.CBytes(fileBuffer)
-	defer C.free(unsafe.Pointer(cBuffer))
-
-	// Call the C function
-	result := int(C.decode((*C.char)(cBuffer), C.size_t(len(fileBuffer)), cOutputFileName))
-
-	return result
-}
 
 func main() {
 	// Read the contents of the .ul file
@@ -38,7 +16,7 @@ func main() {
 		return
 	}
 
-	result := ulaw_to_wav(fileBuffer, outputFileName)
+	result := converter.ConvertToWav(fileBuffer, outputFileName)
 
 	// Print the result
 	fmt.Printf("Result from C library: %d\n", result)
