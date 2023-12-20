@@ -2,7 +2,7 @@ package converter
 
 /*
 	#cgo CFLAGS: -I../src
-	#cgo LDFLAGS: -L../lib -ldecode -Wl,-rpath=./lib -lsox
+	#cgo LDFLAGS: -L../lib -ldecode -lsox
 	#include <stdlib.h>
 	#include <sox.h>
    	#include "libdecode.h"
