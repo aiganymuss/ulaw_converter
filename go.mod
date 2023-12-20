@@ -1,3 +1,3 @@
-module ulaw_to_wav
+module github.com/aiganymuss/ulaw_converter
 
-go 1.21
+go 1.21.4
